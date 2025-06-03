@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -J control
+#SBATCH -N 1
+#SBATCH -p RM
+#SBATCH -t 06:00:00
+#SBATCH --array=1-50
+#SBATCH --mem=128GB
+
+cd /ocean/projects/bio250006p/shared/Julisa_HC_mouse/binary_count/
+
+j=50    # what is j?   (The seed number on which to begin analysis) 
+		# what is k?   (how many of the follwoing seeds shall be analyzed) 
+s=15
+y=8
+i=0.02
+p=4
+z=0
+for k in {0..99}; do
+	./mouseAnalyzer_syt7_18 -T 1 -e -i $i -p $p -s $s -y $y seed_count.$((SLURM_ARRAY_TASK_ID+($z+$j*${k}))).bin.bz2 >> ../results_1_5k/result_$((SLURM_ARRAY_TASK_ID+($z+$j*${k}))).dat
+
+done
+
+
