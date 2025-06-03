@@ -1,0 +1,16 @@
+VIZ_OUTPUT { /*Define the visualization data output block*/
+	MODE = CELLBLENDER
+        FILENAME = "./viz"
+	MOLECULES{ 		   
+		NAME_LIST {"ca*" "bound_sensor*" "*channel*"}  
+		ITERATION_NUMBERS { ALL_DATA @ [[0 TO 3000000 STEP 10000]] }
+		}
+
+	/*
+	MESHES
+	{
+		NAME_LIST {ALL_MESHES}
+		ITERATION_NUMBERS {ALL_DATA @ [0]}
+	}*/
+}
+

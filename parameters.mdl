@@ -1,0 +1,131 @@
+/* parameters for the nmj simulation */
+
+INTERACTION_RADIUS = 0.003
+
+iterations = 4024000                           /*number of iterations for 4 pulses = 6300000, for 2 pulse = 4024000*/
+                                                                                            
+default_onrate=0.22E8   /*default onrate for vesicles ca_binding_sites*/
+default_offrate=910.0  /*default offrate for vesicles ca_binding_sites*/
+                                                                                             
+divider = 1                                    /* factor used to modify vesicle ca_binding_rates */
+sensor_onrate=default_onrate*divider     /*final onrate for ca_binding sites*/
+sensor_offrate=default_offrate*divider   /*final offrate for ca binding sites*/
+ca_diff_const=6E-6        /*calcium diffusion constant*/
+
+sensor_Y_onrate = 10E6
+sensor_Y_offrate = 15
+
+fixed_buffer_onrate = 1E8                      /* onrate for fixed ca buffer sites */ 
+fixed_buffer_offrate = 10E3                    /* offrate for fixed ca buffer sites */
+fixed_buffer_concentration = 0.0020             /* concentration of fixed buffer in Molar */ 
+fixed_buffer_diff_const=0
+
+mobile_buffer_onrate = 1E8		       /* onrate for mobile ca buffer molecules */
+mobile_buffer_offrate = 10E3                   /* offrate for mobile ca buffer molecules */
+mobile_buffer_concentration = 0.00          /* concentration of mobile buffer in Molar */
+mobile_buffer_diff_const = 0	               /* mobile buffer diffusion constant */                                                                                             
+/*mobile_buffer_diff_const = 0*/
+
+time_step = 1e-8                               /* simulation time step */
+maximum_time_step = time_step*1                /* maximum simulation time step - set equal to time step for max accuracy */
+reaction_output_time_step = 5e-7               /* interval between reaction data output data points */
+effector_grid_density = 10000                  /* density of the effector site grid */
+
+/* ca binding site assignments. Set variable to 1 to turn on ca binding site */
+
+/* core */
+sensor_18_present = 0
+sensor_19_present = 0
+sensor_20_present = 0
+sensor_21_present = 0
+sensor_22_present = 0
+sensor_23_present = 0
+
+/* inner ring */
+sensor_00_present = 1
+sensor_01_present = 1
+sensor_02_present = 1
+sensor_03_present = 1
+sensor_04_present = 1
+sensor_05_present = 1
+sensor_06_present = 1
+sensor_07_present = 1
+sensor_08_present = 1
+sensor_09_present = 1
+sensor_10_present = 1
+sensor_11_present = 1
+sensor_12_present = 1
+sensor_13_present = 1
+sensor_14_present = 1
+sensor_15_present = 1
+sensor_16_present = 1
+sensor_17_present = 1
+
+/* outer ring */
+sensor_24_present = 1
+sensor_25_present = 0
+sensor_26_present = 1
+sensor_27_present = 0
+sensor_28_present = 0
+sensor_29_present = 1
+sensor_30_present = 0
+sensor_31_present = 1
+sensor_32_present = 0
+sensor_33_present = 0
+sensor_34_present = 1
+sensor_35_present = 0
+sensor_36_present = 1
+sensor_37_present = 0
+sensor_38_present = 1
+sensor_39_present = 0
+sensor_40_present = 1
+sensor_41_present = 0
+sensor_42_present = 0
+sensor_43_present = 1
+sensor_44_present = 0
+sensor_45_present = 1
+sensor_46_present = 0
+sensor_47_present = 0
+sensor_48_present = 1
+sensor_49_present = 0
+sensor_50_present = 1
+sensor_51_present = 0
+
+/* Y sensors*/
+
+sensor_Y_0_present = 0
+sensor_Y_1_present = 0
+sensor_Y_2_present = 0
+sensor_Y_3_present = 0
+sensor_Y_4_present = 0
+sensor_Y_5_present = 0
+sensor_Y_6_present = 1
+sensor_Y_7_present = 1
+sensor_Y_8_present = 1
+sensor_Y_9_present = 1
+sensor_Y_10_present = 0
+sensor_Y_11_present = 0
+sensor_Y_12_present = 0
+sensor_Y_13_present = 0
+sensor_Y_14_present = 0
+sensor_Y_15_present = 0
+sensor_Y_16_present = 1
+sensor_Y_17_present = 1
+sensor_Y_18_present = 1
+sensor_Y_19_present = 1
+sensor_Y_20_present = 1
+sensor_Y_21_present = 1
+sensor_Y_22_present = 1
+sensor_Y_23_present = 1
+sensor_Y_24_present = 1
+sensor_Y_25_present = 1
+sensor_Y_26_present = 1
+sensor_Y_27_present = 1
+sensor_Y_28_present = 0
+sensor_Y_29_present = 0
+sensor_Y_30_present = 1
+sensor_Y_31_present = 1
+sensor_Y_32_present = 0
+sensor_Y_33_present = 0
+sensor_Y_34_present = 0
+sensor_Y_35_present = 0

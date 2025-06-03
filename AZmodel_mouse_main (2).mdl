@@ -1,0 +1,67 @@
+/*This is the main file for the mouse azmodel simulation*/
+
+INCLUDE_FILE="parameters.mdl"  /*read parameters for the simulation*/
+
+NOTIFICATIONS
+{
+DIFFUSION_CONSTANT_REPORT=OFF
+ITERATION_REPORT=OFF
+PROBABILITY_REPORT=OFF
+VARYING_PROBABILITY_REPORT=OFF
+PROGRESS_REPORT=OFF
+RELEASE_EVENT_REPORT=OFF
+FINAL_SUMMARY=OFF
+}
+
+ITERATIONS=iterations
+TIME_STEP=time_step
+TIME_STEP_MAX=maximum_time_step
+EFFECTOR_GRID_DENSITY=effector_grid_density
+
+PARTITION_X=[[-1.1 TO 1.1 STEP 0.04]]
+PARTITION_Y=[[-1 TO 1 STEP 0.04]]
+PARTITION_Z=[[-0.1 TO 1.2 STEP 0.02]]
+
+/*molecules,reactions,channel release sites,and surface classes*/
+
+INCLUDE_FILE="molecules.mdl"
+INCLUDE_FILE="reactions.mdl"
+INCLUDE_FILE="channel_release_site.mdl"
+INCLUDE_FILE="surface_classes.mdl"
+
+/*object template files*/
+
+INCLUDE_FILE="./geometry/ca_binding_site_template.mdl"
+INCLUDE_FILE = "./geometry/ca_Y_binding_site_template.mdl"
+INCLUDE_FILE="./geometry/vesicle_template.mdl"
+
+/*object files*/
+
+INCLUDE_FILE="./geometry/main_membrane.mdl"
+INCLUDE_FILE="./geometry/active_zone_vesicles.mdl"
+INCLUDE_FILE="./geometry/endcaps.mdl"
+INCLUDE_FILE="./geometry/volume_buffer.mdl"
+
+
+/*create instances of the subjects in the simulation*/
+
+INSTANTIATE presynaptic_segment OBJECT {
+endcaps OBJECT endcaps {}
+main_membrane OBJECT main_membrane {}
+vesicles OBJECT vesicles {}
+buffer OBJECT buffer {}
+channel_release_site OBJECT channel_release_site {}
+}
+
+/*visual and reaction data output*/
+
+sprintf(seed,"%04g",SEED) /*write the internal variable SEED into the variable seed*/
+
+INCLUDE_FILE="local_directory.mdl" /*file written by control script that defines the destination of the reaction_data*/
+
+/*for default conditions, rewrite local_directory.mdl to state locladir=/react_data */
+
+/*INCLUDE_FILE="viz_data.mdl"*/
+INCLUDE_FILE="reaction_data.mdl"
+
+/*end of the file*/
